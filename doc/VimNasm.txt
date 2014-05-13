@@ -1,0 +1,42 @@
+Overview:
+  Assembly is probably my favorite language when coding for fun, my previous
+editor was Scite with a modified ~/.SciTEUser.properties to make it into a
+(sortof) IDE but daily use of vi has eventually pushed me to create this plugin.
+
+Requirements:
+  Nasm - my preferred assembler, feel free to replace with your own fav
+  Ld   - standard linux linker
+  Gdb  - built-in support for debugging asm is a bit rough, see recommendations
+
+Recommendations:
+  Gdbinit - https://github.com/gdbinit/Gdbinit, I fiddled for quite some time
+            making Gdb behave before finding this treasure. A lot of work has
+            gone into it and it makes Gdb a great asm debugger - get it, you
+            won't regret it.
+
+Installation:
+  Copy plugin/*.vim under ~/.vim/plugin/ and copy doc/* to ~/.vim/doc/
+
+Details:
+  I've never written a vim plugin before so I expect to hear people shaking
+their heads saying "What is this PoS??" Unfortunately, I usually only do just
+enough to make things functional so if you're expecting a polished work of art
+this isn't it.
+
+This plugin will map function keys as follows:
+
+    F6: Compile
+    F7: Link
+    F8: Run
+    F9: Debug
+
+Obviously this won't work for everyone so as before, feel free to make it your
+own. It currently searches the source for a BITS directive to determine the
+output object file format (elf32|elf64), a better method is on the TODO list.
+
+I decided to go with a quick background colour change (green) to notify on
+successful compilation or linking and only pop up failure messages.
+
+It also checks for the existence of artifacts from previous steps, so executing
+a Run() won't do the compile and link steps unless required.
+

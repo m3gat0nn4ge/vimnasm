@@ -1,0 +1,2 @@
+This plugin provides shortcut keys to allow compile/link/run/debug from within
+vi for assembly coding using nasm/ld/gdb.
